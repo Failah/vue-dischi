@@ -23,7 +23,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.row {
+  row-gap: 20px;
+}
+
 .vs-col-5n {
-  width: calc(100% / 5);
+  width: 20%;
 }
 </style>

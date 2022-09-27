@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container">
+    <div class="container pt-5">
       <AlbumContainerComponent :albums="albums" />
     </div>
   </main>
@@ -42,5 +42,6 @@ main {
   background-color: #1e2d3b;
   color: white;
   height: calc(100vh - 80px);
+  overflow-y: scroll;
 }
 </style>
