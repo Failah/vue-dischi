@@ -1,6 +1,7 @@
 <template>
   <main>
     <div class="container pt-5">
+      <GenreFilterComponent @genre-search="searchAlbumByGenre" />
       <AlbumContainerComponent :albums="albums" />
     </div>
   </main>
@@ -8,24 +9,26 @@
 
 <script>
 import AlbumContainerComponent from "@/components/AlbumContainerComponent.vue";
+import GenreFilterComponent from "@/components/GenreFilterComponent.vue";
 import axios from "axios";
 
 export default {
   name: "MainComponent",
   components: {
     AlbumContainerComponent,
+    GenreFilterComponent,
   },
 
   data() {
     return {
-      apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+      apiAlbumsUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       albums: [],
     };
   },
 
   created() {
     axios
-      .get(this.apiUrl)
+      .get(this.apiAlbumsUrl)
       .then((response) => {
         this.albums = response.data.response;
         console.log(response.data.response);
@@ -33,6 +36,12 @@ export default {
       .catch((error) => {
         console.log(error);
       });
+  },
+
+  methods: {
+    searchAlbumByGenre(searchText) {
+      console.log(searchText);
+    },
   },
 };
 </script>
