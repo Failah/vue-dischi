@@ -23,7 +23,7 @@ export default {
     return {
       apiAlbumsUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       albums: [],
-      genreFilter: "",
+      genreFilter: "All",
     };
   },
 

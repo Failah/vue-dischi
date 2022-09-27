@@ -8,6 +8,7 @@
         name="genre-filter"
         id="genre-filter"
         class="col-6 px-2 h-75"
+        value="All"
       >
         <option value="All">All</option>
         <option value="Rock">Rock</option>
@@ -27,12 +28,11 @@ export default {
   data() {
     return {
       inputText: "",
-      selectInput: document.getElementById("genre-filter"),
     };
   },
 
-  created() {
-    //this.selectInput.ariaValueText = "All";
+  mounted() {
+    this.inputText = "All";
   },
 };
 </script>
