@@ -2,7 +2,7 @@
   <main>
     <div class="container pt-5">
       <GenreFilterComponent @genre-search="searchAlbumByGenre" />
-      <AlbumContainerComponent :albums="albums" />
+      <AlbumContainerComponent :albums="albumsToDisplay" />
     </div>
   </main>
 </template>
@@ -23,6 +23,7 @@ export default {
     return {
       apiAlbumsUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       albums: [],
+      genreFilter: "",
     };
   },
 
@@ -41,6 +42,20 @@ export default {
   methods: {
     searchAlbumByGenre(searchText) {
       console.log(searchText);
+      this.genreFilter = searchText;
+      console.log(this.genreFilter);
+    },
+  },
+
+  computed: {
+    albumsToDisplay() {
+      const array = [];
+      this.albums.forEach((item) => {
+        if (item.genre === this.genreFilter || this.genreFilter === "All") {
+          array.push(item);
+        }
+      });
+      return array;
     },
   },
 };

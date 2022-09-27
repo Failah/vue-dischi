@@ -1,16 +1,22 @@
 <template>
-  <div>
-    <select
-      v-model="inputText"
-      @click="$emit('genre-search', inputText)"
-      name="genre-filter"
-      id="genre-filter"
-    >
-      <option value="rock">Rock</option>
-      <option value="pop">Pop</option>
-      <option value="jazz">Jazz</option>
-      <option value="metal">Metal</option>
-    </select>
+  <div class="row align-items-center pb-3">
+    <div class="row col-6 align-items-center">
+      <h4 class="col-4">Sort by Genre:</h4>
+      <select
+        v-model="inputText"
+        @click="$emit('genre-search', inputText)"
+        name="genre-filter"
+        id="genre-filter"
+        class="col-6 px-2 h-75"
+      >
+        <option value="All">All</option>
+        <option value="Rock">Rock</option>
+        <option value="Pop">Pop</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Metal">Metal</option>
+      </select>
+    </div>
+    <div class="row col-6"></div>
   </div>
 </template>
 
@@ -21,10 +27,19 @@ export default {
   data() {
     return {
       inputText: "",
+      selectInput: document.getElementById("genre-filter"),
     };
+  },
+
+  created() {
+    //this.selectInput.ariaValueText = "All";
   },
 };
 </script>
 
 <style lang="scss" scoped>
+#genre-filter {
+  color: rgb(68, 68, 68);
+  outline: 0px;
+}
 </style>
